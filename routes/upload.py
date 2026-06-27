@@ -38,10 +38,7 @@ async def upload_file(
 
     return {
 
-        "filename": file.filename,
+        "success": True,
 
-        "location": location,
-
-        "status": "uploaded"
-
+        "file": location
     }
