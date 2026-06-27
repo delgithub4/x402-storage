@@ -1,5 +1,5 @@
 import os
-
+import uuid
 
 class LocalProvider:
 
@@ -16,9 +16,12 @@ class LocalProvider:
             exist_ok=True
         )
 
+        unique_name = f"{uuid.uuid4()}_{filename}"
+
         filepath = os.path.join(
             self.STORAGE_PATH,
-            filename
+            unique_name
+        )
         )
 
         with open(
@@ -28,4 +31,10 @@ class LocalProvider:
 
             file.write(content)
 
-        return filepath
+       return {
+
+            "filename": unique_name,
+        
+            "path": filepath
+        
+        }
